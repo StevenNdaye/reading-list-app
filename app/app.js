@@ -1,10 +1,26 @@
 (function(){
   'use strict';
-  var readingApp = angular.module('readingList', []);
+  angular.module('readingList', [])
 
-  readingApp.controller('ReadingListController', function(){
+  .controller('ReadingListController', function(){
     this.books = books;
     this.genres = genres;
+  })
+
+  .directive('bookGenres', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/book-genres.html',
+      replace: true
+    }
+  })
+
+  .directive('bookCover', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/book-cover.html',
+      replace: true
+    }
   });
 
   var genres = [ 'fable', 'fantasy', 'fiction', 'folklore', 'horror', 'humor', 'legend', 'metafiction', 'mystery', 'mythology', 'non-fiction', 'poetry' ];
